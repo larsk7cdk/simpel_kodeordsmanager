@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SimpelKodeordsmanager.IntegrationTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e03e8c1f7756ef7bc2d44197d06a849321609885")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5713d28a432123d3981f368734b22d7297c58217")]
 [assembly: System.Reflection.AssemblyProductAttribute("SimpelKodeordsmanager.IntegrationTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SimpelKodeordsmanager.IntegrationTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

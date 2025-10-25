@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "OK99LdLdfpE=",
+  "dgSpecHash": "nkh5PJQMnvU=",
   "success": true,
   "projectFilePath": "C:\\github\\larsk7cdk\\AAU\\webapplikationsikkerhed\\simpel_kodeordsmanager\\backend\\simpel_kodeordsmanager.server\\tests\\SimpelKodeordsmanager.IntegrationTests\\SimpelKodeordsmanager.IntegrationTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lars\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
+    "C:\\Users\\Lars\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
+    "C:\\Users\\Lars\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.1\\fluentvalidation.aspnetcore.11.3.1.nupkg.sha512",
+    "C:\\Users\\Lars\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.0.0\\fluentvalidation.dependencyinjectionextensions.12.0.0.nupkg.sha512",
     "C:\\Users\\Lars\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.10\\microsoft.aspnetcore.authentication.jwtbearer.9.0.10.nupkg.sha512",
     "C:\\Users\\Lars\\.nuget\\packages\\microsoft.codecoverage\\17.12.0\\microsoft.codecoverage.17.12.0.nupkg.sha512",
     "C:\\Users\\Lars\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.9\\microsoft.extensions.configuration.9.0.9.nupkg.sha512",

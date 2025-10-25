@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "/AqNHndIyLI=",
+  "dgSpecHash": "CKKSUN6SuHQ=",
   "success": true,
   "projectFilePath": "C:\\github\\larsk7cdk\\AAU\\webapplikationsikkerhed\\simpel_kodeordsmanager\\backend\\simpel_kodeordsmanager.server\\src\\SimpelKodeordsmanager.Application\\SimpelKodeordsmanager.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lars\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
+    "C:\\Users\\Lars\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.1\\fluentvalidation.aspnetcore.11.3.1.nupkg.sha512",
+    "C:\\Users\\Lars\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.0.0\\fluentvalidation.dependencyinjectionextensions.12.0.0.nupkg.sha512",
     "C:\\Users\\Lars\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.10\\microsoft.aspnetcore.authentication.jwtbearer.9.0.10.nupkg.sha512",
     "C:\\Users\\Lars\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.9\\microsoft.extensions.configuration.9.0.9.nupkg.sha512",
     "C:\\Users\\Lars\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.9\\microsoft.extensions.configuration.abstractions.9.0.9.nupkg.sha512",
