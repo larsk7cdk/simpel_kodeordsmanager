@@ -1,0 +1,5 @@
+# Run 
+
+### Get API Health Status
+GET {{API_HostAddress}}/Health
+Accept: application/json

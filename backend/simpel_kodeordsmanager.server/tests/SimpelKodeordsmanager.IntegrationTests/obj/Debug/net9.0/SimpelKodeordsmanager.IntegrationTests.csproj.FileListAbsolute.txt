@@ -126,3 +126,6 @@ C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\s
 C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\tests\SimpelKodeordsmanager.IntegrationTests\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\tests\SimpelKodeordsmanager.IntegrationTests\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\tests\SimpelKodeordsmanager.IntegrationTests\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\tests\SimpelKodeordsmanager.IntegrationTests\bin\Debug\net9.0\FluentValidation.dll
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\tests\SimpelKodeordsmanager.IntegrationTests\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\tests\SimpelKodeordsmanager.IntegrationTests\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
