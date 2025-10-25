@@ -2,13 +2,22 @@ using System.Globalization;
 using System.Reflection;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using SimpelKodeordsmanager.API.Controllers.Shared;
+using SimpelKodeordsmanager.API.Middlewares;
 using SimpelKodeordsmanager.Application;
+using SimpelKodeordsmanager.Application.Exceptions;
 using SimpelKodeordsmanager.Domain.Models;
 using SimpelKodeordsmanager.Infrastructure;
 using SimpelKodeordsmanager.Persistence;
+
+using var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+var logger = loggerFactory.CreateLogger<Program>();
+
+logger.LogInformation("Starting Simpel Kodeordsmanager API");
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,17 +30,30 @@ var cultureInfo = new CultureInfo("da-DK");
 CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
 CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
+
+// Global Exception Handler
+builder.Services.AddProblemDetails(configure =>
+{
+    configure.CustomizeProblemDetails = context => { context.ProblemDetails.Extensions["traceId"] = context.HttpContext.TraceIdentifier; };
+});
+
+builder.Services.AddExceptionHandler<ValidationExceptionHandler>();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
+
+// Add Logging
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(new LoggerConfiguration()
+    .WriteTo.Console()
+    .ReadFrom.Configuration(builder.Configuration)
+    .CreateLogger());
+
 // Add Application services to the container.
 builder.Services
     .AddApplication(configuration)
     .AddInfrastructure(configuration)
     .AddPersistence(configuration);
 
-// Add Logging
-builder.Logging.AddSerilog(new LoggerConfiguration()
-    .WriteTo.Console()
-    .ReadFrom.Configuration(builder.Configuration)
-    .CreateLogger());
 
 // Add Authentication and Authorization
 builder.Services
@@ -79,8 +101,8 @@ builder.Services
     });
 
 // Add Controllers
-builder.Services
-    .AddControllers();
+builder.Services.AddControllers(options => { options.Conventions.Add(new RouteTokenTransformerConvention(new LowerCaseParameterTransformer())); });
+
 
 var app = builder.Build();
 
@@ -91,6 +113,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Add Middleware
+app.UseMiddleware<ExceptionMiddleware>();
 
 // redirect HTTP requests to HTTPS
 app.UseHttpsRedirection();
@@ -113,6 +138,7 @@ app.UseCors(x =>
 
 // Use controllers as endpoints
 app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
 
 // Run the application
 try

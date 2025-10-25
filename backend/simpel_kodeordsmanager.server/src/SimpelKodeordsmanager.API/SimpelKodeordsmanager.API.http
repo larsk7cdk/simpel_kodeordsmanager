@@ -1,5 +1,30 @@
 # Run 
 
 ### Get API Health Status
-GET {{API_HostAddress}}/Health
+GET {{API_HostAddress}}/health
 Accept: application/json
+
+### Get API Health Status with Auth
+GET {{API_HostAddress}}/health/auth
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NGFlYzRjZC0xYjE1LTQzZGEtOTJjYy1iZDk4ZGE0OWFmZWUiLCJzdWIiOiJqYW5lZG9lQG1haWwuY29tIiwiZW1haWwiOiJqYW5lZG9lQG1haWwuY29tIiwiZXhwIjoxNzYxNDAyOTU5LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSJ9.V2TcEzhhC4Xw9YaYK794Xt8_SrCfbhVlmw85Dw8AYLT84wusbZFWc2mzISReuNhc_KbzP8oHx_vkXeC-f8KeF0_Czx--Ywhs7MtPsKYT1NGj6HNBbr8JNr4tLWevjOsxuS0I6yqP77cL0F6ha3TKqTD2eMrEtKjhcjFinyEMePXkJd6IzHzOG67CsN8BsmhrKu_MKk9Lf4H6F_wRzhhu_a4OfsYSb7Piw2t69ObC7ZVb82Yr5JBIULWJOTBxqGsvTj37v9Gk-XzFXX8A3eac1OUwAIjBCX9ZvyE1fo-8fwqvjX9syDLy07aji5QXzeFcBuXL3A4LWBllPXL0TgUwdQ
+
+
+### Register User
+POST {{API_HostAddress}}/user/register
+Content-Type: application/json
+
+{
+  "name": "Jane Doe",
+  "email": "janedoe@mail.com",
+  "password": "1234"
+}
+
+### Login User
+POST {{API_HostAddress}}/user/login
+Content-Type: application/json
+
+{
+  "email": "janedoe@mail.com",
+  "password": "1234"
+}

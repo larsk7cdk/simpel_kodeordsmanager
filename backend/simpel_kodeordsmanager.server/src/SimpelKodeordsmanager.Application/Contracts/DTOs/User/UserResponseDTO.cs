@@ -3,7 +3,7 @@
 /// <summary>
 /// Oplysninger om bruger autentifikation
 /// </summary>
-public class UserAuthDTO
+public record UserResponseDTO
 {
     /// <summary>
     /// Bruger Email

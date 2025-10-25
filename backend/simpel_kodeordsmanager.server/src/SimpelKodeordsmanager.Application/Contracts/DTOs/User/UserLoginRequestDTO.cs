@@ -3,15 +3,15 @@
 /// <summary>
 ///     Brugers oplysninger for login
 /// </summary>
-public class UserLoginDTO
+public class UserLoginRequestDTO
 {
     /// <summary>
     ///     Bruger Email
     /// </summary>
-    public string? Email { get; init; }
+    public required string Email { get; init; }
 
     /// <summary>
     /// Bruger kodeord
     /// </summary>
-    public string? Password { get; init; }
+    public required string Password { get; init; }
 }

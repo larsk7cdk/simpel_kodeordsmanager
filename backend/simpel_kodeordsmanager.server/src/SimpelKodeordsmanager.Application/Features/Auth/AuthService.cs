@@ -7,7 +7,7 @@ using SimpelKodeordsmanager.Application.Contracts.Interfaces.Auth;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Persistence;
 using SimpelKodeordsmanager.Domain.Models;
 
-namespace SimpelKodeordsmanager.Application.Auth;
+namespace SimpelKodeordsmanager.Application.Features.Auth;
 
 public class AuthService(IOptions<JwtModel> jwt, IUserRepository userRepository)
     : IAuthService
