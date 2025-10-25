@@ -9,11 +9,18 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SimpelKodeordsmanager.Domain\SimpelKodeordsmanager.Domain.csproj" />
+        <ProjectReference Include="..\SimpelKodeordsmanager.Domain\SimpelKodeordsmanager.Domain.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="NetArchTest.Rules" Version="1.3.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.10"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.9"/>
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.9"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Features\Manager\"/>
+        <Folder Include="Features\User\"/>
     </ItemGroup>
 
 </Project>
