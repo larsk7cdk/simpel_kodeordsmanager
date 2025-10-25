@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{98983FB1-5E32-46F7-907D-0DB1DBB6ECEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{393A38D4-DA92-4DCB-A5FE-9EE1B1B1C581}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BB5C6197-574E-444E-9A53-59E1EF6D24C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{227407B8-9118-427E-BB8E-DC0A8BF1EADC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D07DC2DA-0475-4B5D-A95A-73D385020160}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{49CBE06A-E681-4559-B76E-E02A65264FDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpelKodeordsmanager.Application", "src\SimpelKodeordsmanager.Application\SimpelKodeordsmanager.Application.csproj", "{56E1690D-6DBB-4AC4-9E03-912A303238A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpelKodeordsmanager.Domain", "src\SimpelKodeordsmanager.Domain\SimpelKodeordsmanager.Domain.csproj", "{C323C0E1-5865-42BF-8AAD-B2C3AEBDB9B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpelKodeordsmanager.Persistence", "src\SimpelKodeordsmanager.Persistence\SimpelKodeordsmanager.Persistence.csproj", "{7ED65F27-3952-4C50-B104-EC6A96080CD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpelKodeordsmanager.Infrastructure", "src\SimpelKodeordsmanager.Infrastructure\SimpelKodeordsmanager.Infrastructure.csproj", "{420CD101-F0F9-4C9E-A3CE-74D087666F94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpelKodeordsmanager.API", "src\SimpelKodeordsmanager.API\SimpelKodeordsmanager.API.csproj", "{2CA7D32F-DB24-4D00-B9D1-6BB57E964BBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0658F154-9B9F-4BEB-A5D4-7D23837ACD21}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpelKodeordsmanager.IntegrationTests", "tests\SimpelKodeordsmanager.IntegrationTests\SimpelKodeordsmanager.IntegrationTests.csproj", "{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{227407B8-9118-427E-BB8E-DC0A8BF1EADC} = {393A38D4-DA92-4DCB-A5FE-9EE1B1B1C581}
+		{D07DC2DA-0475-4B5D-A95A-73D385020160} = {393A38D4-DA92-4DCB-A5FE-9EE1B1B1C581}
+		{49CBE06A-E681-4559-B76E-E02A65264FDE} = {393A38D4-DA92-4DCB-A5FE-9EE1B1B1C581}
+		{56E1690D-6DBB-4AC4-9E03-912A303238A1} = {49CBE06A-E681-4559-B76E-E02A65264FDE}
+		{C323C0E1-5865-42BF-8AAD-B2C3AEBDB9B0} = {49CBE06A-E681-4559-B76E-E02A65264FDE}
+		{7ED65F27-3952-4C50-B104-EC6A96080CD1} = {D07DC2DA-0475-4B5D-A95A-73D385020160}
+		{420CD101-F0F9-4C9E-A3CE-74D087666F94} = {D07DC2DA-0475-4B5D-A95A-73D385020160}
+		{2CA7D32F-DB24-4D00-B9D1-6BB57E964BBC} = {227407B8-9118-427E-BB8E-DC0A8BF1EADC}
+		{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6} = {BB5C6197-574E-444E-9A53-59E1EF6D24C4}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56E1690D-6DBB-4AC4-9E03-912A303238A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E1690D-6DBB-4AC4-9E03-912A303238A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E1690D-6DBB-4AC4-9E03-912A303238A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E1690D-6DBB-4AC4-9E03-912A303238A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C323C0E1-5865-42BF-8AAD-B2C3AEBDB9B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C323C0E1-5865-42BF-8AAD-B2C3AEBDB9B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C323C0E1-5865-42BF-8AAD-B2C3AEBDB9B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C323C0E1-5865-42BF-8AAD-B2C3AEBDB9B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ED65F27-3952-4C50-B104-EC6A96080CD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED65F27-3952-4C50-B104-EC6A96080CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED65F27-3952-4C50-B104-EC6A96080CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED65F27-3952-4C50-B104-EC6A96080CD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{420CD101-F0F9-4C9E-A3CE-74D087666F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{420CD101-F0F9-4C9E-A3CE-74D087666F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{420CD101-F0F9-4C9E-A3CE-74D087666F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{420CD101-F0F9-4C9E-A3CE-74D087666F94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CA7D32F-DB24-4D00-B9D1-6BB57E964BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CA7D32F-DB24-4D00-B9D1-6BB57E964BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CA7D32F-DB24-4D00-B9D1-6BB57E964BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CA7D32F-DB24-4D00-B9D1-6BB57E964BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

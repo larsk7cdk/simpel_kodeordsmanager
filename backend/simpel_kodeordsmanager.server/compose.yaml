@@ -1,0 +1,7 @@
+﻿services:
+  simpel_kodeordsmanager.api:
+    image: simpel_kodeordsmanager.api
+    build:
+      context: .
+      dockerfile: src/simpel_kodeordsmanager.api/Dockerfile
+

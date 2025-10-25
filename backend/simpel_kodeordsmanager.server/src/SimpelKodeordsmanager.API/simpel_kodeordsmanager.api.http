@@ -1,0 +1,6 @@
+@simpel_kodeordsmanager.api_HostAddress = http://localhost:5064
+
+GET {{simpel_kodeordsmanager.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

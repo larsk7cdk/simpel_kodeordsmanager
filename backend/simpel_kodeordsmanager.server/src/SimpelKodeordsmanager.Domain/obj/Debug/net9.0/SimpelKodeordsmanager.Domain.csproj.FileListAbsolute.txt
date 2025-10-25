@@ -1,0 +1,13 @@
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\bin\Debug\net9.0\SimpelKodeordsmanager.Domain.deps.json
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\bin\Debug\net9.0\SimpelKodeordsmanager.Domain.dll
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\bin\Debug\net9.0\SimpelKodeordsmanager.Domain.pdb
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\obj\Debug\net9.0\SimpelKodeordsmanager.Domain.csproj.AssemblyReference.cache
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\obj\Debug\net9.0\SimpelKodeordsmanager.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\obj\Debug\net9.0\SimpelKodeordsmanager.Domain.AssemblyInfoInputs.cache
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\obj\Debug\net9.0\SimpelKodeordsmanager.Domain.AssemblyInfo.cs
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\obj\Debug\net9.0\SimpelKodeordsmanager.Domain.csproj.CoreCompileInputs.cache
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\obj\Debug\net9.0\SimpelKodeordsmanager.Domain.sourcelink.json
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\obj\Debug\net9.0\SimpelKodeordsmanager.Domain.dll
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\obj\Debug\net9.0\refint\SimpelKodeordsmanager.Domain.dll
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\obj\Debug\net9.0\SimpelKodeordsmanager.Domain.pdb
+C:\github\larsk7cdk\AAU\webapplikationsikkerhed\simpel_kodeordsmanager\backend\simpel_kodeordsmanager.server\src\SimpelKodeordsmanager.Domain\obj\Debug\net9.0\ref\SimpelKodeordsmanager.Domain.dll

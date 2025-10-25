@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "BEYEIuunzH8=",
+  "success": true,
+  "projectFilePath": "C:\\github\\larsk7cdk\\AAU\\webapplikationsikkerhed\\simpel_kodeordsmanager\\backend\\simpel_kodeordsmanager.server\\src\\SimpelKodeordsmanager.Persistence\\SimpelKodeordsmanager.Persistence.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lars\\.nuget\\packages\\mono.cecil\\0.11.3\\mono.cecil.0.11.3.nupkg.sha512",
+    "C:\\Users\\Lars\\.nuget\\packages\\netarchtest.rules\\1.3.2\\netarchtest.rules.1.3.2.nupkg.sha512"
+  ],
+  "logs": []
+}
