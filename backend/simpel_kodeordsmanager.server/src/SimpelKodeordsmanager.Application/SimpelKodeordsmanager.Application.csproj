@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Contracts\DTOs\Auth\" />
+        <Folder Include="Contracts\DTOs\Auth\"/>
     </ItemGroup>
 
 </Project>

@@ -3,10 +3,10 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using SimpelKodeordsmanager.Application.Contracts.Interfaces.Services;
+using SimpelKodeordsmanager.Application.Contracts.Interfaces.Shared;
 using SimpelKodeordsmanager.Domain.Models;
 
-namespace SimpelKodeordsmanager.Application.Services;
+namespace SimpelKodeordsmanager.Infrastructure.Shared;
 
 internal class TokenService(IOptions<JwtModel> jwt) : ITokenService
 {

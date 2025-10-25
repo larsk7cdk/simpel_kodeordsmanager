@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SLHMxIXhsLM=",
+  "dgSpecHash": "3tVEtbd/0Fg=",
   "success": true,
   "projectFilePath": "C:\\github\\larsk7cdk\\AAU\\webapplikationsikkerhed\\simpel_kodeordsmanager\\backend\\simpel_kodeordsmanager.server\\src\\SimpelKodeordsmanager.Domain\\SimpelKodeordsmanager.Domain.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Lars\\.nuget\\packages\\mono.cecil\\0.11.3\\mono.cecil.0.11.3.nupkg.sha512",
-    "C:\\Users\\Lars\\.nuget\\packages\\netarchtest.rules\\1.3.2\\netarchtest.rules.1.3.2.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

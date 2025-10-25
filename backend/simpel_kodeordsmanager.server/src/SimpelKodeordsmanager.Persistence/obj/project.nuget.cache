@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MPDZurku0Ic=",
+  "dgSpecHash": "fnebQ6YF/BM=",
   "success": true,
   "projectFilePath": "C:\\github\\larsk7cdk\\AAU\\webapplikationsikkerhed\\simpel_kodeordsmanager\\backend\\simpel_kodeordsmanager.server\\src\\SimpelKodeordsmanager.Persistence\\SimpelKodeordsmanager.Persistence.csproj",
   "expectedPackageFiles": [
@@ -40,8 +40,6 @@
     "C:\\Users\\Lars\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.0.1\\microsoft.identitymodel.tokens.8.0.1.nupkg.sha512",
     "C:\\Users\\Lars\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\Lars\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
-    "C:\\Users\\Lars\\.nuget\\packages\\mono.cecil\\0.11.3\\mono.cecil.0.11.3.nupkg.sha512",
-    "C:\\Users\\Lars\\.nuget\\packages\\netarchtest.rules\\1.3.2\\netarchtest.rules.1.3.2.nupkg.sha512",
     "C:\\Users\\Lars\\.nuget\\packages\\system.clientmodel\\1.0.0\\system.clientmodel.1.0.0.nupkg.sha512",
     "C:\\Users\\Lars\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
     "C:\\Users\\Lars\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",

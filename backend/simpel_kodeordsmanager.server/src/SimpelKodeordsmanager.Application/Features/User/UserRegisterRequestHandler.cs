@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using SimpelKodeordsmanager.Application.Contracts.DTOs.User;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Persistence;
-using SimpelKodeordsmanager.Application.Contracts.Interfaces.Services;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Shared;
 using SimpelKodeordsmanager.Application.Contracts.Mappings;
 using SimpelKodeordsmanager.Application.Exceptions;
@@ -33,7 +32,7 @@ public class UserRegisterRequestHandler(
             throw new BadRequestException($"User with {request.Email} already exists.");
 
         // Hash password
-        var hashPassword = passwordHasher.HashPassword(request.Password);
+        var hashPassword = passwordHasher.Hash(request.Password);
 
         // Save user
         var createUser = new UserEntity

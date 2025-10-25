@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SimpelKodeordsmanager.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+afec3b5f998875e41157992be45028b56f8329ad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6551262d037d46167fdb1f614f9d639ef3f9985")]
 [assembly: System.Reflection.AssemblyProductAttribute("SimpelKodeordsmanager.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SimpelKodeordsmanager.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

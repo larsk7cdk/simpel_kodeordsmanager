@@ -1,4 +1,4 @@
-﻿namespace SimpelKodeordsmanager.Application.Contracts.Interfaces.Services;
+﻿namespace SimpelKodeordsmanager.Application.Contracts.Interfaces.Shared;
 
 public interface ITokenService
 {

@@ -8,12 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SimpelKodeordsmanager.Application\SimpelKodeordsmanager.Application.csproj" />
-      <ProjectReference Include="..\SimpelKodeordsmanager.Domain\SimpelKodeordsmanager.Domain.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="NetArchTest.Rules" Version="1.3.2" />
+        <ProjectReference Include="..\SimpelKodeordsmanager.Application\SimpelKodeordsmanager.Application.csproj"/>
+        <ProjectReference Include="..\SimpelKodeordsmanager.Domain\SimpelKodeordsmanager.Domain.csproj"/>
     </ItemGroup>
 
 </Project>

@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using SimpelKodeordsmanager.Application.Contracts.DTOs.User;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Persistence;
-using SimpelKodeordsmanager.Application.Contracts.Interfaces.Services;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Shared;
 using SimpelKodeordsmanager.Application.Contracts.Mappings;
 using SimpelKodeordsmanager.Application.Exceptions;
@@ -31,8 +30,9 @@ public class UserLoginRequestHandler(
             throw new BadRequestException($"User with {request.Email} dont exists.");
 
         // Check password
-        var requestPassword = passwordHasher.HashPassword(request.Password);
-        if (requestPassword != user.Password)
+
+        var verifyPassword = passwordHasher.Verify(request.Password, user.Password);
+        if (!verifyPassword)
             throw new BadRequestException($"User password is incorrect");
 
         // Create JWT Token

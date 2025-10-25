@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SimpelKodeordsmanager.Application\SimpelKodeordsmanager.Application.csproj" />
+        <ProjectReference Include="..\SimpelKodeordsmanager.Application\SimpelKodeordsmanager.Application.csproj"/>
     </ItemGroup>
-    
+
 </Project>
