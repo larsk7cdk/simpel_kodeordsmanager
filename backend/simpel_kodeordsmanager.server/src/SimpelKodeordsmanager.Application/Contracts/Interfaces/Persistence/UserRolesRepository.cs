@@ -2,7 +2,7 @@
 
 namespace SimpelKodeordsmanager.Application.Contracts.Interfaces.Persistence;
 
-public interface IUserRepository : IGenericRepository<User>
+public interface IUserRoleRepository : IGenericRepository<UserRole>
 {
-    Task<User?> GetByEmailAsync(string email);
+    Task<List<string>> GetRoleNamesByUserId(int userId);
 }

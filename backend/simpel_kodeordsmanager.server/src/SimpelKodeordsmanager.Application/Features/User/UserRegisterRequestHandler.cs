@@ -5,13 +5,14 @@ using SimpelKodeordsmanager.Application.Contracts.Interfaces.Persistence;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Shared;
 using SimpelKodeordsmanager.Application.Contracts.Mappings;
 using SimpelKodeordsmanager.Application.Exceptions;
-using SimpelKodeordsmanager.Domain.Entities;
+using SimpelKodeordsmanager.Domain.Models;
 
 namespace SimpelKodeordsmanager.Application.Features.User;
 
 public class UserRegisterRequestHandler(
     IValidator<UserRegisterRequestDTO> validator,
     IUserRepository userRepository,
+    IUserRoleRepository userRoleRepository,
     ITokenService tokenService,
     IPasswordHasher passwordHasher,
     ILogger<UserRegisterRequestHandler> logger
@@ -28,24 +29,31 @@ public class UserRegisterRequestHandler(
         // Check if user exists
         var user = await userRepository.GetByEmailAsync(request.Email);
 
-        if (user != null)
+        if (user is not null)
             throw new BadRequestException($"User with {request.Email} already exists.");
 
         // Hash password
         var hashPassword = passwordHasher.Hash(request.Password);
 
         // Save user
-        var createUser = new UserEntity
+        var createUser = new Domain.Models.User
         {
             Email = request.Email,
             Name = request.Name,
-            Password = hashPassword,
+            Password = hashPassword
         };
-
         await userRepository.CreateAsync(createUser);
 
+        // Add role to user
+        var userRole = new UserRole
+        {
+            UserId = createUser.Id,
+            RoleId = request.IsAdmin ? Role.AdminId : Role.MemberId
+        };
+        await userRoleRepository.CreateAsync(userRole);
+
         // // Create JWT Token
-        var generatedToken = tokenService.Generate(request.Email);
+        var generatedToken = await tokenService.GenerateAsync(createUser.Id, request.Email);
 
         // Return user
         return request.MapToResponseDto(generatedToken.token, generatedToken.expiresIn);

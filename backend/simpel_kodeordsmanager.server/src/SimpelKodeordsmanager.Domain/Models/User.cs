@@ -1,8 +1,8 @@
-﻿using SimpelKodeordsmanager.Domain.Entities.Shared;
+﻿using SimpelKodeordsmanager.Domain.Entities;
 
-namespace SimpelKodeordsmanager.Domain.Entities;
+namespace SimpelKodeordsmanager.Domain.Models;
 
-public class UserEntity : BaseEntity
+public class User : BaseEntity
 {
     public required string Email { get; init; }
     public required string Name { get; init; }

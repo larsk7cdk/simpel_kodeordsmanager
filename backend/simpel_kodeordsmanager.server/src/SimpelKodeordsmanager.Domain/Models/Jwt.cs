@@ -1,6 +1,6 @@
 ﻿namespace SimpelKodeordsmanager.Domain.Models;
 
-public class JwtModel
+public sealed class Jwt
 {
     public required string PrivateKeyPath { get; init; }
     

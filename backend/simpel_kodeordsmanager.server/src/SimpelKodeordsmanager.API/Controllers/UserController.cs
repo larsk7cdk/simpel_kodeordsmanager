@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SimpelKodeordsmanager.API.Controllers.Shared;
 using SimpelKodeordsmanager.Application.Contracts.DTOs.User;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Shared;
+using SimpelKodeordsmanager.Domain.Models;
 
 namespace SimpelKodeordsmanager.API.Controllers
 {
@@ -41,6 +43,7 @@ namespace SimpelKodeordsmanager.API.Controllers
         ///     Liste af alle brugere der er oprettet
         /// </summary>
         [HttpGet, Route("users")]
+        [Authorize(Policy = Role.Admin)]
         [ProducesResponseType(typeof(IReadOnlyList<UserDetailsResponseDTO>), 200)]
         public async Task<IActionResult> LoginAsync(
             [FromServices] IResponseHandler<IReadOnlyList<UserDetailsResponseDTO>> responseHandler)

@@ -18,3 +18,8 @@ https://www.youtube.com/watch?v=Npi7kAgFUjY
 
 https://generate-random.org/encryption-keys
 
+
+
+### 
+Role-Based Auth System in .NET
+https://www.youtube.com/watch?v=24r7UmuRh0A

@@ -1,5 +1,5 @@
 ﻿using SimpelKodeordsmanager.Application.Contracts.DTOs.User;
-using SimpelKodeordsmanager.Domain.Entities;
+using SimpelKodeordsmanager.Domain.Models;
 
 namespace SimpelKodeordsmanager.Application.Contracts.Mappings;
 
@@ -21,7 +21,7 @@ public static class UserMapper
             ExpiresIn = expiresIn,
         };
     
-    public static IReadOnlyList<UserDetailsResponseDTO> MapToResponseDto(this IReadOnlyList<UserEntity> entity)
+    public static IReadOnlyList<UserDetailsResponseDTO> MapToResponseDto(this IReadOnlyList<User> entity)
     {
         var users = entity.Select(s => new UserDetailsResponseDTO
         {

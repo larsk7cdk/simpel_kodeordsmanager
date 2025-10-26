@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SimpelKodeordsmanager.API.Controllers.Shared;
 using SimpelKodeordsmanager.Application.Contracts.DTOs.Manager;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Shared;
+using SimpelKodeordsmanager.Domain.Models;
 
 namespace SimpelKodeordsmanager.API.Controllers
 {
@@ -11,7 +12,7 @@ namespace SimpelKodeordsmanager.API.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [Authorize(Roles = Role.Member)]
     public class ManagerController : AppControllerBase
     {
         /// <summary>

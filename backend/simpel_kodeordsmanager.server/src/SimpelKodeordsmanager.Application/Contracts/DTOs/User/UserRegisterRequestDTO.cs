@@ -20,4 +20,9 @@ public record UserRegisterRequestDTO
     /// Bruger kodeord
     /// </summary>
     public required string Password { get; init; }
+
+    /// <summary>
+    /// Angiver om bruger skal oprettes som administrator
+    /// </summary>
+    public bool IsAdmin { get; init; } = false;
 }

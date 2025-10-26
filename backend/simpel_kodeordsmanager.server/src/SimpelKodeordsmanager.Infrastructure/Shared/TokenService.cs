@@ -3,21 +3,27 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using SimpelKodeordsmanager.Application.Contracts.Interfaces.Persistence;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Shared;
 using SimpelKodeordsmanager.Domain.Models;
 
 namespace SimpelKodeordsmanager.Infrastructure.Shared;
 
-internal class TokenService(IOptions<JwtModel> jwt) : ITokenService
+internal class TokenService(IUserRoleRepository userRoleRepository, IOptions<Jwt> jwt) : ITokenService
 {
-    public (string token, int expiresIn) Generate(string email)
+    public async Task<(string token, int expiresIn)> GenerateAsync(int userId, string email)
     {
-        var claims = new[]
-        {
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim(JwtRegisteredClaimNames.Sub, email),
-            new Claim(JwtRegisteredClaimNames.Email, email),
-        };
+        var roleNames = await userRoleRepository.GetRoleNamesByUserId(userId);
+
+        List<Claim> claims =
+        [
+            new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new(JwtRegisteredClaimNames.Sub, email),
+            new(JwtRegisteredClaimNames.Email, email),
+        ];
+
+        // Add Role claims
+        claims.AddRange(roleNames.Select(x => new Claim(ClaimTypes.Role, x)));
 
         var rsaSecurityKey = GetRsaKey();
         var signingCredentials = new SigningCredentials(rsaSecurityKey, SecurityAlgorithms.RsaSha256);
@@ -32,7 +38,7 @@ internal class TokenService(IOptions<JwtModel> jwt) : ITokenService
 
         var tokenString = new JwtSecurityTokenHandler().WriteToken(securityToken);
         var expiresIn = jwt.Value.DurationInMinutes * 60; // convert minutes to seconds
-        
+
         return (tokenString, expiresIn);
     }
 

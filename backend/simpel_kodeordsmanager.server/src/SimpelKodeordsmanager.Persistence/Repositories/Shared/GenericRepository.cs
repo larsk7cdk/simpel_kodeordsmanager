@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Persistence;
-using SimpelKodeordsmanager.Domain.Entities.Shared;
+using SimpelKodeordsmanager.Domain.Entities;
 using SimpelKodeordsmanager.Persistence.DatabaseContext;
 
 namespace SimpelKodeordsmanager.Persistence.Repositories.Shared;
@@ -19,10 +19,11 @@ public class GenericRepository<T>(AppDatabaseContext context) : IGenericReposito
         .FirstOrDefaultAsync(x => x.Id == id);
 
 
-    public async Task CreateAsync(T entity)
+    public async Task<int> CreateAsync(T entity)
     {
         await context.AddAsync(entity);
-        await context.SaveChangesAsync();
+        var id = await context.SaveChangesAsync();
+        return id;
     }
 
     public async Task UpdateAsync(T entity)

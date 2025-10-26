@@ -1,4 +1,4 @@
-﻿namespace SimpelKodeordsmanager.Domain.Entities.Shared;
+﻿namespace SimpelKodeordsmanager.Domain.Entities;
 
 public abstract class BaseEntity
 {

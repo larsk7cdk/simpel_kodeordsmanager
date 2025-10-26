@@ -17,7 +17,7 @@ public static class DependencyInjection
     public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
     {
         // Configuration bindings
-        services.Configure<JwtModel>(configuration.GetSection("Jwt"));
+        services.Configure<Jwt>(configuration.GetSection("Jwt"));
 
         // Add validation
         services

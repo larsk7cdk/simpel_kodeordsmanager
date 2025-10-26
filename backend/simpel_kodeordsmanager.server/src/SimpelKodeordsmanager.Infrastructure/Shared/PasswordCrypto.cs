@@ -9,7 +9,7 @@ namespace SimpelKodeordsmanager.Infrastructure.Shared;
 /// <summary>
 /// Provides AES-based encryption and decryption for passwords.
 /// </summary>
-public class PasswordCrypto(IOptions<CryptoModel> crypto) : IPasswordCrypto
+public class PasswordCrypto(IOptions<Crypto> crypto) : IPasswordCrypto
 {
     /// <summary>
     /// Encrypts a plaintext password and returns a base64-encoded ciphertext that contains

@@ -1,4 +1,4 @@
-﻿using SimpelKodeordsmanager.Domain.Entities.Shared;
+﻿using SimpelKodeordsmanager.Domain.Entities;
 
 namespace SimpelKodeordsmanager.Application.Contracts.Interfaces.Persistence;
 
@@ -8,7 +8,7 @@ public interface IGenericRepository<T> where T : BaseEntity
 
     Task<T?> GetByIdAsync(int id);
 
-    Task CreateAsync(T entity);
+    Task<int> CreateAsync(T entity);
 
     Task UpdateAsync(T entity);
 

@@ -12,8 +12,8 @@ using SimpelKodeordsmanager.Persistence.DatabaseContext;
 namespace SimpelKodeordsmanager.Persistence.Migrations
 {
     [DbContext(typeof(AppDatabaseContext))]
-    [Migration("20251026094233_Manager")]
-    partial class Manager
+    [Migration("20251026144809_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace SimpelKodeordsmanager.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SimpelKodeordsmanager.Domain.Entities.ManagerEntity", b =>
+            modelBuilder.Entity("SimpelKodeordsmanager.Domain.Models.Manager", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -57,7 +57,37 @@ namespace SimpelKodeordsmanager.Persistence.Migrations
                     b.ToTable("Managers");
                 });
 
-            modelBuilder.Entity("SimpelKodeordsmanager.Domain.Entities.UserEntity", b =>
+            modelBuilder.Entity("SimpelKodeordsmanager.Domain.Models.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Member"
+                        });
+                });
+
+            modelBuilder.Entity("SimpelKodeordsmanager.Domain.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -88,13 +118,56 @@ namespace SimpelKodeordsmanager.Persistence.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("SimpelKodeordsmanager.Domain.Entities.ManagerEntity", b =>
+            modelBuilder.Entity("SimpelKodeordsmanager.Domain.Models.UserRole", b =>
                 {
-                    b.HasOne("SimpelKodeordsmanager.Domain.Entities.UserEntity", "User")
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRole");
+                });
+
+            modelBuilder.Entity("SimpelKodeordsmanager.Domain.Models.Manager", b =>
+                {
+                    b.HasOne("SimpelKodeordsmanager.Domain.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SimpelKodeordsmanager.Domain.Models.UserRole", b =>
+                {
+                    b.HasOne("SimpelKodeordsmanager.Domain.Models.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SimpelKodeordsmanager.Domain.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
 
                     b.Navigation("User");
                 });

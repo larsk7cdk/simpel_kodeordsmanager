@@ -2,5 +2,5 @@
 
 public interface ITokenService
 {
-    (string token, int expiresIn) Generate(string email);
+    Task<(string token, int expiresIn)> GenerateAsync(int userId, string email);
 }

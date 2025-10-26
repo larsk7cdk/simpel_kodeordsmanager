@@ -11,7 +11,7 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         // Configuration bindings
-        services.Configure<CryptoModel>(configuration.GetSection("Crypto"));
+        services.Configure<Crypto>(configuration.GetSection("Crypto"));
         
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<IPasswordCrypto, PasswordCrypto>();

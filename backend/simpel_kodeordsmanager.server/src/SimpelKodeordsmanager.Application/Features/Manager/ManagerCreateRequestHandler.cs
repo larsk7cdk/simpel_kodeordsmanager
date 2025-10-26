@@ -4,7 +4,6 @@ using SimpelKodeordsmanager.Application.Contracts.DTOs.Manager;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Persistence;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Shared;
 using SimpelKodeordsmanager.Application.Exceptions;
-using SimpelKodeordsmanager.Domain.Entities;
 
 namespace SimpelKodeordsmanager.Application.Features.Manager;
 
@@ -32,7 +31,7 @@ public class ManagerCreateRequestHandler(
         var encryptedPassword = passwordCrypto.Encrypt(request.Password);
 
         // Save user
-        var createPassword = new ManagerEntity
+        var createPassword = new Domain.Models.Manager
         {
             Name = request.Name,
             Password = encryptedPassword,

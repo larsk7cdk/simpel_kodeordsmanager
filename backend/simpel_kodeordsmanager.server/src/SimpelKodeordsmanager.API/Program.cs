@@ -23,7 +23,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Load and bind configuration
 var configuration = builder.Configuration;
-var jwt = configuration.GetSection("Jwt").Get<JwtModel>()!;
+var jwt = configuration.GetSection("Jwt").Get<Jwt>()!;
 
 // Set Danish culture globally
 var cultureInfo = new CultureInfo("da-DK");
@@ -57,7 +57,11 @@ builder.Services
 
 // Add Authentication and Authorization
 builder.Services
-    .AddAuthorization()
+    .AddAuthorization(options =>
+    {
+        options.AddPolicy(Role.Admin, policy => policy.RequireRole(Role.Admin));
+        options.AddPolicy(Role.Member, policy => policy.RequireRole(Role.Member));
+    })
     .AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

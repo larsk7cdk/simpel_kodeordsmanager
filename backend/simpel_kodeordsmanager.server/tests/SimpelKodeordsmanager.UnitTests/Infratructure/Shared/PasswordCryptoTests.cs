@@ -11,7 +11,7 @@ public class PasswordCryptoTests
     public void Encrypt_SamePlaintext_TwoCalls_ProduceDifferentCiphertexts()
     {
         // Arrange
-        var cryptoModel = new CryptoModel
+        var cryptoModel = new Crypto
         {
             Key = "0123456789ABCDEF0123456789ABCDEF",
             IVSize = 16

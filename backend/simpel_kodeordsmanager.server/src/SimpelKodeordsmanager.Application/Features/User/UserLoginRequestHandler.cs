@@ -36,7 +36,7 @@ public class UserLoginRequestHandler(
             throw new BadRequestException($"User password is incorrect");
 
         // Create JWT Token
-        var generatedToken = tokenService.Generate(request.Email);
+        var generatedToken = await tokenService.GenerateAsync(user.Id, user.Email);
 
         // Return User
         return request.MapToResponseDto(generatedToken.token, generatedToken.expiresIn);

@@ -4,7 +4,6 @@ using SimpelKodeordsmanager.Application.Contracts.DTOs.Manager;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Persistence;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Shared;
 using SimpelKodeordsmanager.Application.Exceptions;
-using SimpelKodeordsmanager.Domain.Entities;
 
 namespace SimpelKodeordsmanager.Application.Features.Manager;
 

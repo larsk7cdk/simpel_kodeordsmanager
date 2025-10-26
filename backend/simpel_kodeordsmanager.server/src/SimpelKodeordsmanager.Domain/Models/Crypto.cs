@@ -1,6 +1,6 @@
 ﻿namespace SimpelKodeordsmanager.Domain.Models;
 
-public class CryptoModel
+public sealed class Crypto
 {
     public required int IVSize { get; init; }
     public required string Key { get; init; }

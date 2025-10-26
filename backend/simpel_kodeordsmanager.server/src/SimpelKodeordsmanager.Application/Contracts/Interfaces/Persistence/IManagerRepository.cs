@@ -1,10 +1,10 @@
-﻿using SimpelKodeordsmanager.Domain.Entities;
+﻿using SimpelKodeordsmanager.Domain.Models;
 
 namespace SimpelKodeordsmanager.Application.Contracts.Interfaces.Persistence;
 
-public interface IManagerRepository : IGenericRepository<ManagerEntity>
+public interface IManagerRepository : IGenericRepository<Manager>
 {
-    Task<ManagerEntity?> GetByNameAsync(string name, int userId);
+    Task<Manager?> GetByNameAsync(string name, int userId);
 
-    Task<IReadOnlyList<ManagerEntity>?> GetByUserIdAsync(int userId);
+    Task<IReadOnlyList<Manager>?> GetByUserIdAsync(int userId);
 }
