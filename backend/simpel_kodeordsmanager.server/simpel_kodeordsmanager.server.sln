@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpelKodeordsmanager.IntegrationTests", "tests\SimpelKodeordsmanager.IntegrationTests\SimpelKodeordsmanager.IntegrationTests.csproj", "{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpelKodeordsmanager.UnitTests", "tests\SimpelKodeordsmanager.UnitTests\SimpelKodeordsmanager.UnitTests.csproj", "{B838E0B8-7DF0-43E0-A336-CABC1E5D51C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,7 @@ Global
 		{420CD101-F0F9-4C9E-A3CE-74D087666F94} = {D07DC2DA-0475-4B5D-A95A-73D385020160}
 		{2CA7D32F-DB24-4D00-B9D1-6BB57E964BBC} = {227407B8-9118-427E-BB8E-DC0A8BF1EADC}
 		{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6} = {BB5C6197-574E-444E-9A53-59E1EF6D24C4}
+		{B838E0B8-7DF0-43E0-A336-CABC1E5D51C1} = {BB5C6197-574E-444E-9A53-59E1EF6D24C4}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{56E1690D-6DBB-4AC4-9E03-912A303238A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -73,5 +76,9 @@ Global
 		{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B838E0B8-7DF0-43E0-A336-CABC1E5D51C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B838E0B8-7DF0-43E0-A336-CABC1E5D51C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B838E0B8-7DF0-43E0-A336-CABC1E5D51C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B838E0B8-7DF0-43E0-A336-CABC1E5D51C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

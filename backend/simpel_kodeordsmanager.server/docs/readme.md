@@ -7,4 +7,14 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=P@ssword2025" \
 -d mcr.microsoft.com/mssql/server:2022-latest
 ```
 
+Links:
+
+### Pasword hashing
+https://www.youtube.com/watch?v=J4ix8Mhi3rs
+
+
+### Password encrypt/decrypt
+https://www.youtube.com/watch?v=Npi7kAgFUjY
+
+https://generate-random.org/encryption-keys
 
