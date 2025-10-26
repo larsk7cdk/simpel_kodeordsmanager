@@ -2,9 +2,13 @@
 
 namespace SimpelKodeordsmanager.Domain.Entities;
 
-public class UserEntity : BaseEntity
+public class ManagerEntity : BaseEntity
 {
-    public required string Email { get; init; }
     public required string Name { get; init; }
+
     public required string Password { get; init; }
+
+    public required int UserId { get; init; }
+
+    public UserEntity? User { get; init; }
 }

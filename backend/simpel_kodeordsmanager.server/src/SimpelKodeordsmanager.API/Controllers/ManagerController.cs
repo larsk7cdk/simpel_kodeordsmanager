@@ -1,34 +1,43 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SimpelKodeordsmanager.API.Controllers.Shared;
+using SimpelKodeordsmanager.Application.Contracts.DTOs.Manager;
+using SimpelKodeordsmanager.Application.Contracts.Interfaces.Shared;
 
 namespace SimpelKodeordsmanager.API.Controllers
 {
     /// <summary>
-    ///    Håndtering af kodeord og applikationer
+    ///    Håndtering af kodeord
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class ManagerController : ControllerBase
+    public class ManagerController : AppControllerBase
     {
-        //     /// <summary>
-        //     ///     Hent alle applikationer og deres kodeord for en given bruger
-        //     /// </summary>
-        //     [HttpPost, Route("GetAll")]
-        //     public async Task<IActionResult> GetAllAsync([FromBody] UserManagerDTO request)
-        //     {
-        //         var apps = await managerService.GetAllAsync(request.Email);
-        //
-        //         return Ok(new ManagerDTO
-        //         {
-        //             Email = apps.Email,
-        //             Applications = apps.ManagerApplications.Select(s => new ManagerApplicationDTO
-        //             {
-        //                 Name = s.Name,
-        //                 Password = s.Password
-        //             }).ToList()
-        //         });
-        //     }
-        // }
+        /// <summary>
+        ///     Opret nyt kodeord
+        /// </summary>
+        [HttpPost, Route("create")]
+        [ProducesResponseType(201)]
+        public async Task<IActionResult> CreateAsync(
+            [FromServices] IRequestHandler<ManagerCreateRequestDTO> requestHandler,
+            [FromBody] ManagerCreateRequestDTO request)
+        {
+            await requestHandler.InvokeAsync(request);
+            return Created();
+        }
+
+        /// <summary>
+        ///     Hsnt alle kodeord for en bruger
+        /// </summary>
+        [HttpGet, Route("getall")]
+        [ProducesResponseType(typeof(IReadOnlyList<ManagerResponseDTO>), 200)]
+        public async Task<IActionResult> GetAllAsync(
+            [FromServices] IRequestHandler<ManagerReadRequestDTO, IReadOnlyList<ManagerResponseDTO>> requestHandler,
+            [FromBody] ManagerReadRequestDTO request)
+        {
+            var passwordList = await requestHandler.InvokeAsync(request);
+            return Ok(passwordList);
+        }
     }
 }

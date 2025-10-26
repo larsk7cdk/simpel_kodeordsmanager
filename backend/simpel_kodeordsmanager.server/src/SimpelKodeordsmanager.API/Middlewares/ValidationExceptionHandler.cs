@@ -14,7 +14,7 @@ public class ValidationExceptionHandler(
         if (exception is not ValidationException validationException)
             return false;
 
-        logger.LogWarning("A validation exception occurred while processing the request.", exception);
+        logger.LogWarning(exception, "A validation exception occurred while processing the request.");
 
         httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
         var context = new ProblemDetailsContext

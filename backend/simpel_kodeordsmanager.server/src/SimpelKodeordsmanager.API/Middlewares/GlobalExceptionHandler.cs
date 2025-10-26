@@ -11,7 +11,7 @@ public class GlobalExceptionHandler(
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception,
         CancellationToken cancellationToken)
     {
-        logger.LogWarning("An unhandled exception occurred while processing the request.", exception);
+        logger.LogWarning(exception, "An unhandled exception occurred while processing the request.");
 
         httpContext.Response.StatusCode = exception switch
         {

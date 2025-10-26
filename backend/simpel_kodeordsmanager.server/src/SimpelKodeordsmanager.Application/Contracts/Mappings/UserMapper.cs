@@ -25,6 +25,7 @@ public static class UserMapper
     {
         var users = entity.Select(s => new UserDetailsResponseDTO
         {
+            Id = s.Id,
             Email = s.Email,
             Name = s.Name
         });

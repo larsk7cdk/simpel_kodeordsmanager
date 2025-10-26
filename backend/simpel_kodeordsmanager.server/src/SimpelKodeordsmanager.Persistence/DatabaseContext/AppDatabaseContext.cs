@@ -9,6 +9,8 @@ public class AppDatabaseContext(DbContextOptions<AppDatabaseContext> options) : 
     // DbSets for entities
     public DbSet<UserEntity> Users { get; init; }
 
+    public DbSet<ManagerEntity> Managers { get; init; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Loads all configurations that implement IEntityTypeConfiguration<T> from the assembly

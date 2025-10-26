@@ -6,6 +6,11 @@
 public record UserDetailsResponseDTO
 {
     /// <summary>
+    /// Bruger ID
+    /// </summary>
+    public required int Id { get; init; }
+
+    /// <summary>
     /// Bruger Email
     /// </summary>
     public required string Email { get; init; }

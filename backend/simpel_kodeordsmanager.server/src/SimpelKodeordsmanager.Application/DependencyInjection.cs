@@ -3,8 +3,10 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SimpelKodeordsmanager.Application.Contracts.DTOs.Manager;
 using SimpelKodeordsmanager.Application.Contracts.DTOs.User;
 using SimpelKodeordsmanager.Application.Contracts.Interfaces.Shared;
+using SimpelKodeordsmanager.Application.Features.Manager;
 using SimpelKodeordsmanager.Application.Features.User;
 using SimpelKodeordsmanager.Domain.Models;
 
@@ -26,6 +28,10 @@ public static class DependencyInjection
         services.AddScoped<IRequestHandler<UserRegisterRequestDTO, UserResponseDTO>, UserRegisterRequestHandler>();
         services.AddScoped<IRequestHandler<UserLoginRequestDTO, UserResponseDTO>, UserLoginRequestHandler>();
         services.AddScoped<IResponseHandler<IReadOnlyList<UserDetailsResponseDTO>>, UsersResponseHandler>();
+
+        // Manager for passwords
+        services.AddScoped<IRequestHandler<ManagerCreateRequestDTO>, ManagerCreateRequestHandler>();
+        services.AddScoped<IRequestHandler<ManagerReadRequestDTO, IReadOnlyList<ManagerResponseDTO>>, ManagerReadRequestHandler>();
 
         return services;
     }

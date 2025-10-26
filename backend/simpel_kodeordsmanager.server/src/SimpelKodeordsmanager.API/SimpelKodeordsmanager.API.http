@@ -1,5 +1,7 @@
 # Run 
 
+# Health
+
 ### Get API Health Status
 GET {{API_HostAddress}}/health
 Accept: application/json
@@ -7,16 +9,18 @@ Accept: application/json
 ### Get API Health Status with Auth
 GET {{API_HostAddress}}/health/auth
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhYTQ4N2QwYy03MTY5LTQxYTktYWVhMi1iNGFlNGMzZDUwZjIiLCJzdWIiOiJqYW5lZG9lQG1haWwuY29tIiwiZW1haWwiOiJqYW5lZG9lQG1haWwuY29tIiwiZXhwIjoxNzYxNDI3MTUxLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSJ9.PbMSASZ9hnbUEwUbGFlkpUAgDp-x9bRjhe1EgZ3_wukZXQp46pLGU0COByyzfgpbBFH3ryNoH56FnHSeIrRQl0gAysEwUUGZl4_A7med2xlPmCcgke6oNEtxI7quS_bdaOrplOSGxJ6JPgyyGfI_VLaEtG77oOY7OPCjqgKiAmdKt7wGhBEYl178k_qMBL7_RUNgp7nGORzu6lnU12s54hMnoFmoLG4rX7Br6mW4p-eYsTriHeyW1MLhs3Xv27UAbqDyp_xwgRiDTEmhRfYyk0O0f8uj5MBx_gGUZVdHVQ6u1mH0L8qg4rp7h2SGYlhWck4a6c3CZKWCjKNE8ereRw
+Authorization: Bearer {{BearerToken}}
 
+
+# User
 
 ### Register User
 POST {{API_HostAddress}}/user/register
 Content-Type: application/json
 
 {
-  "name": "Jane Doe",
-  "email": "janedoe@mail.com",
+  "name": "John Doe",
+  "email": "johndoe@mail.com",
   "password": "1234"
 }
 
@@ -25,10 +29,33 @@ POST {{API_HostAddress}}/user/login
 Content-Type: application/json
 
 {
-  "email": "janedoe@mail.com",
+  "email": "johndoe@mail.com",
   "password": "1234"
 }
 
 ### List all Users
 GET {{API_HostAddress}}/user/users
 Content-Type: application/json
+
+
+# Manager
+
+### Create Password
+POST {{API_HostAddress}}/manager/create
+Content-Type: application/json
+Authorization: Bearer {{BearerToken}}
+
+{
+  "name": "My first password",
+  "password": "qwerty123456asdfgh",
+  "userId": 3
+}
+
+### Get all password for user id
+GET {{API_HostAddress}}/manager/getall
+Content-Type: application/json
+Authorization: Bearer {{BearerToken}}
+
+{
+  "userId": 3
+}
