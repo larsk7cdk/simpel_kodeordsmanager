@@ -35,5 +35,18 @@ namespace SimpelKodeordsmanager.API.Controllers
             var result = await requestHandler.InvokeAsync(request);
             return Ok(result);
         }
+
+
+        /// <summary>
+        ///     Liste af alle brugere der er oprettet
+        /// </summary>
+        [HttpGet, Route("users")]
+        [ProducesResponseType(typeof(IReadOnlyList<UserDetailsResponseDTO>), 200)]
+        public async Task<IActionResult> LoginAsync(
+            [FromServices] IResponseHandler<IReadOnlyList<UserDetailsResponseDTO>> responseHandler)
+        {
+            var result = await responseHandler.InvokeAsync();
+            return Ok(result);
+        }
     }
 }

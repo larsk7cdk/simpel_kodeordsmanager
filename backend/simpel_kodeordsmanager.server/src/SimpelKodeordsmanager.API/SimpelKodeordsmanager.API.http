@@ -28,3 +28,7 @@ Content-Type: application/json
   "email": "janedoe@mail.com",
   "password": "1234"
 }
+
+### List all Users
+GET {{API_HostAddress}}/user/users
+Content-Type: application/json

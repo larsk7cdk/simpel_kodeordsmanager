@@ -38,6 +38,7 @@ public class UserRegisterRequestHandler(
         var createUser = new UserEntity
         {
             Email = request.Email,
+            Name = request.Name,
             Password = hashPassword,
         };
 

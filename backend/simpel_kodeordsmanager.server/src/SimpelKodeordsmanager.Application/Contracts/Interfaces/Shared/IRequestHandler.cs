@@ -9,3 +9,8 @@ public interface IRequestHandler<in TIn, TOut> where TIn : class where TOut : cl
 {
     Task<TOut> InvokeAsync(TIn request, CancellationToken cancellationToken = default);
 }
+
+public interface IResponseHandler<T> where T : class
+{
+    Task<T> InvokeAsync(CancellationToken cancellationToken = default);
+}

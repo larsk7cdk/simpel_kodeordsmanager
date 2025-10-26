@@ -25,6 +25,7 @@ public static class DependencyInjection
         // User 
         services.AddScoped<IRequestHandler<UserRegisterRequestDTO, UserResponseDTO>, UserRegisterRequestHandler>();
         services.AddScoped<IRequestHandler<UserLoginRequestDTO, UserResponseDTO>, UserLoginRequestHandler>();
+        services.AddScoped<IResponseHandler<IReadOnlyList<UserDetailsResponseDTO>>, UsersResponseHandler>();
 
         return services;
     }

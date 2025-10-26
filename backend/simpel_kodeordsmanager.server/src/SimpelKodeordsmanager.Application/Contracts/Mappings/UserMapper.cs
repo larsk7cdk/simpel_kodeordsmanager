@@ -1,4 +1,5 @@
 ﻿using SimpelKodeordsmanager.Application.Contracts.DTOs.User;
+using SimpelKodeordsmanager.Domain.Entities;
 
 namespace SimpelKodeordsmanager.Application.Contracts.Mappings;
 
@@ -19,4 +20,15 @@ public static class UserMapper
             Token = token,
             ExpiresIn = expiresIn,
         };
+    
+    public static IReadOnlyList<UserDetailsResponseDTO> MapToResponseDto(this IReadOnlyList<UserEntity> entity)
+    {
+        var users = entity.Select(s => new UserDetailsResponseDTO
+        {
+            Email = s.Email,
+            Name = s.Name
+        });
+
+        return users.ToList();
+    }
 }
