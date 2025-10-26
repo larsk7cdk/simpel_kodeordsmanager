@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SimpelKodeordsmanager.API.Controllers.Shared;
+using SimpelKodeordsmanager.Domain.Models;
 
 namespace SimpelKodeordsmanager.API.Controllers
 {
@@ -23,7 +24,7 @@ namespace SimpelKodeordsmanager.API.Controllers
         ///     Sundhedstjek af API'en med autorisation
         /// </summary>
         [HttpGet, Route("auth")]
-        [Authorize]
+        [Authorize(Roles = $"{Role.Admin}, {Role.Member}")]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> GetHealthAuthAsync()

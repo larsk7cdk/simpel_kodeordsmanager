@@ -43,7 +43,7 @@ namespace SimpelKodeordsmanager.API.Controllers
         ///     Liste af alle brugere der er oprettet
         /// </summary>
         [HttpGet, Route("users")]
-        [Authorize(Policy = Role.Admin)]
+        [Authorize(Roles = Role.Admin)]
         [ProducesResponseType(typeof(IReadOnlyList<UserDetailsResponseDTO>), 200)]
         public async Task<IActionResult> LoginAsync(
             [FromServices] IResponseHandler<IReadOnlyList<UserDetailsResponseDTO>> responseHandler)

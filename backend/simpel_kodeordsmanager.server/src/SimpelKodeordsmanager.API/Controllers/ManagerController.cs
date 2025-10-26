@@ -20,6 +20,7 @@ namespace SimpelKodeordsmanager.API.Controllers
         /// </summary>
         [HttpPost, Route("create")]
         [ProducesResponseType(201)]
+        [ProducesResponseType(403)]
         public async Task<IActionResult> CreateAsync(
             [FromServices] IRequestHandler<ManagerCreateRequestDTO> requestHandler,
             [FromBody] ManagerCreateRequestDTO request)
@@ -33,6 +34,7 @@ namespace SimpelKodeordsmanager.API.Controllers
         /// </summary>
         [HttpGet, Route("getall")]
         [ProducesResponseType(typeof(IReadOnlyList<ManagerResponseDTO>), 200)]
+        [ProducesResponseType(403)]
         public async Task<IActionResult> GetAllAsync(
             [FromServices] IRequestHandler<ManagerReadRequestDTO, IReadOnlyList<ManagerResponseDTO>> requestHandler,
             [FromBody] ManagerReadRequestDTO request)
