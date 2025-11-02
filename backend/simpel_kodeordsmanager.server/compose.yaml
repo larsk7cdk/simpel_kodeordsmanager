@@ -1,7 +1,92 @@
 ﻿services:
+  
+  # API
   simpel_kodeordsmanager.api:
     image: simpel_kodeordsmanager.api
     build:
       context: .
       dockerfile: src/simpel_kodeordsmanager.api/Dockerfile
+    networks:
+      - backend-network
+  
+  # SQL Server to use for API
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+    networks:
+      - backend-network
+  
+  
+  # Keycloak Authentication Server
+  # - Provides OAuth2/OpenID Connect functionality
+  # - Depends on PostgreSQL for data storage
+  # - Accessible on port 8080
+  # - Connected to PostgreSQL via keycloak-network
+  # - Configured for development mode with HTTP enabled
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      KEYCLOAK_ADMIN: ${KC_ADMIN}
+      KEYCLOAK_ADMIN_PASSWORD: ${KC_ADMIN_PASSWORD}
+      KC_DB: postgres
+      KC_DB_USERNAME: ${PG_USER}
+      KC_DB_PASSWORD: ${PG_PASSWORD}
+      KC_DB_URL: jdbc:postgresql://postgres:5432/${PG_DB}
+      KC_HOSTNAME_STRICT: false
+      KC_HOSTNAME_STRICT_HTTPS: false
+      KC_HTTP_ENABLED: true
+    command: >
+      start      
+      --http-port=8080
+    ports:
+      - "8080:8080"
+    networks:
+      - keycloak-network
+    volumes:
+      - kc_data:/opt/keycloak/data
 
+    # PostgreSQL Database Service
+  # - Stores all Keycloak data (users, realms, clients)
+  # - Must be started before Keycloak
+  # - Connected to Keycloak via keycloak-network
+  # - Data persisted through postgres_data volume
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${PG_DB}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${PG_USER} -d ${PG_DB}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    ports:
+      - "5432:5432"
+    networks:
+      - keycloak-network
+
+volumes:
+  sql_data:
+  pg_data:
+  kc_data:
+
+networks:
+  backend-network:
+    name: backend-network
+  keycloak-network:
+    name: keycloak-network
+    

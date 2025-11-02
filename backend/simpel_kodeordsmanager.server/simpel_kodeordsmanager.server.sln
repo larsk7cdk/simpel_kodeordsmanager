@@ -28,6 +28,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0658F154-9B9F-4BEB-A5D4-7D23837ACD21}"
 	ProjectSection(SolutionItems) = preProject
 		compose.yaml = compose.yaml
+		.env = .env
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpelKodeordsmanager.IntegrationTests", "tests\SimpelKodeordsmanager.IntegrationTests\SimpelKodeordsmanager.IntegrationTests.csproj", "{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6}"
