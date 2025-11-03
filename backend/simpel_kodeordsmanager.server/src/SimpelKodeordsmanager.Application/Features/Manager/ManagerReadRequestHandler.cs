@@ -9,6 +9,7 @@ namespace SimpelKodeordsmanager.Application.Features.Manager;
 
 public class ManagerReadRequestHandler(
     IValidator<ManagerReadRequestDTO> validator,
+    ICurrentUserService currentUserService,
     IManagerRepository managerRepository,
     IPasswordCrypto passwordCrypto,
     ILogger<ManagerReadRequestHandler> logger
@@ -16,20 +17,21 @@ public class ManagerReadRequestHandler(
 {
     public async Task<IReadOnlyList<ManagerResponseDTO>> InvokeAsync(ManagerReadRequestDTO request, CancellationToken cancellationToken = default)
     {
-        logger.LogInformation("Read all passwords for: {User}", request.UserID);
+        var userId = currentUserService.GetUserId()!;
+        logger.LogInformation("Read all passwords for UserID: {User}", userId);
 
         // Validate request and throw exception if invalid
         await validator.ValidateAndThrowAsync(request, cancellationToken);
 
         // Check if name of password exists
-        var passwords = await managerRepository.GetByUserIdAsync(request.UserID);
+        var passwords = await managerRepository.GetByUserIdAsync(userId);
 
         if (passwords is null)
-            throw new BadRequestException($"Passwords for {request.UserID} dont exists.");
+            throw new BadRequestException($"Passwords for {userId} dont exists.");
 
         var passwordList = passwords.Select(s => new ManagerResponseDTO
         {
-            UserID = s.UserId,
+            UserID = userId,
             Name = s.Name,
             Password = passwordCrypto.Decrypt(s.Password),
             EncryptedPassword = s.Password

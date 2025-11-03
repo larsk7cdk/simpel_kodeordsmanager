@@ -1,8 +1,0 @@
-﻿using SimpelKodeordsmanager.Domain.Models;
-
-namespace SimpelKodeordsmanager.Application.Contracts.Interfaces.Persistence;
-
-public interface IUserRepository : IGenericRepository<User>
-{
-    Task<User?> GetByEmailAsync(string email);
-}

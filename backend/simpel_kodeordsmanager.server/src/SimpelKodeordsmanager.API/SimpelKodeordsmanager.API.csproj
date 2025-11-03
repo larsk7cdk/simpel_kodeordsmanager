@@ -48,4 +48,8 @@
         <ProjectReference Include="..\SimpelKodeordsmanager.Persistence\SimpelKodeordsmanager.Persistence.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Logs\" />
+    </ItemGroup>
+
 </Project>

@@ -6,9 +6,6 @@ public class ManagerCreateRequestDTOValidator : AbstractValidator<ManagerCreateR
 {
     public ManagerCreateRequestDTOValidator()
     {
-        RuleFor(x => x.UserID)
-            .NotEmpty().WithMessage("Bruger ID må ikke være tom.");
-
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("Navn må ikke være tom.");
 

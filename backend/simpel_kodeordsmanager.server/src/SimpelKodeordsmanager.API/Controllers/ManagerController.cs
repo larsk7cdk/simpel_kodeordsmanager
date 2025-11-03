@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SimpelKodeordsmanager.API.Controllers.Shared;
@@ -10,9 +11,7 @@ namespace SimpelKodeordsmanager.API.Controllers
     /// <summary>
     ///    Håndtering af kodeord
     /// </summary>
-    [Route("api/[controller]")]
-    [ApiController]
-    [Authorize(Roles = Role.Member)]
+    [Authorize(Roles = Roles.Member)]
     public class ManagerController : AppControllerBase
     {
         /// <summary>

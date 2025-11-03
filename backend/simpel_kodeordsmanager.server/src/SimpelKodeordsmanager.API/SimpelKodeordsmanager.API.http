@@ -1,4 +1,4 @@
-# Run 
+# Run
 
 # Health
 
@@ -9,55 +9,42 @@ Accept: application/json
 ### Get API Health Status with Auth
 GET {{API_HostAddress}}/health/auth
 Accept: application/json
-Authorization: Bearer {{BearerToken}}
-
-
-# User
-
-### Register User
-POST {{API_HostAddress}}/user/register
-Content-Type: application/json
-
-{
-  "name": "Jane Doe",
-  "email": "janedoe@mail.com",
-  "password": "1234",
-  "isAdmin": false
-}
+Authorization: Bearer {{access_token}}
 
 ### Login User
-POST {{API_HostAddress}}/user/login
-Content-Type: application/json
+POST {{Keycloak_HostAddress}}/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
 
-{
-  "email": "johndoe@mail.com",
-  "password": "1234"
-}
+client_id = {{client_id}} &
+client_secret = {{client_secret}} &
+grant_type = {{grant_type}} &
+username = lars &
+password = P@ssword2025
 
-### List all Users
-GET {{API_HostAddress}}/user/users
-Content-Type: application/json
-Authorization: Bearer {{BearerToken}}
+> {%
+    client.global.set("access_token", response.body.access_token);
+    console.log("JWT Token:", client.global.get("access_token"));
+%}
 
+###
 
 # Manager
 
 ### Create Password
 POST {{API_HostAddress}}/manager/create
 Content-Type: application/json
-Authorization: Bearer {{BearerToken}}
+Authorization: Bearer {{access_token}}
 
 {
   "name": "My first password",
-  "password": "qwerty123456asdfgh",
-  "userId": 1
+  "password": "qwerty123456asdfgh"
 }
 
-### Get all password for user id
+### Get all password for logged in user
 GET {{API_HostAddress}}/manager/getall
 Content-Type: application/json
-Authorization: Bearer {{BearerToken}}
+Authorization: Bearer {{access_token}}
 
 {
-  "userId": 1
+  
 }

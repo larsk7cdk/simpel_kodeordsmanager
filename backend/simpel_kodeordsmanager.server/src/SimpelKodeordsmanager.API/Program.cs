@@ -1,6 +1,6 @@
 using System.Globalization;
 using System.Reflection;
-using System.Security.Cryptography;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.IdentityModel.Tokens;
@@ -9,7 +9,6 @@ using Serilog;
 using SimpelKodeordsmanager.API.Controllers.Shared;
 using SimpelKodeordsmanager.API.Middlewares;
 using SimpelKodeordsmanager.Application;
-using SimpelKodeordsmanager.Application.Exceptions;
 using SimpelKodeordsmanager.Domain.Models;
 using SimpelKodeordsmanager.Infrastructure;
 using SimpelKodeordsmanager.Persistence;
@@ -23,7 +22,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Load and bind configuration
 var configuration = builder.Configuration;
-var jwt = configuration.GetSection("Jwt").Get<Jwt>()!;
+// var jwt = configuration.GetSection("Jwt").Get<Jwt>()!;
+var keycloak = configuration.GetSection("Keycloak").Get<Keycloak>()!;
 
 // Set Danish culture globally
 var cultureInfo = new CultureInfo("da-DK");
@@ -54,36 +54,27 @@ builder.Services
     .AddInfrastructure(configuration)
     .AddPersistence(configuration);
 
-
 // Add Authentication and Authorization
 builder.Services
-    .AddAuthorization(options =>
-    {
-        options.AddPolicy(Role.Admin, policy => policy.RequireRole(Role.Admin));
-        options.AddPolicy(Role.Member, policy => policy.RequireRole(Role.Member));
-    })
-    .AddAuthentication(options =>
-    {
-        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    })
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        var rsaKey = RSA.Create();
-        rsaKey.ImportFromPem(File.ReadAllText(jwt.PrivateKeyPath));
-
+        options.RequireHttpsMetadata = false;
+        options.Audience = keycloak.Audience;
+        options.MetadataAddress = keycloak.MetadataAddress;
         options.TokenValidationParameters = new TokenValidationParameters
         {
+            ValidIssuer = keycloak.ValidIssuer,
             ValidateIssuer = true,
+            ValidateIssuerSigningKey = false,
             ValidateAudience = true,
             ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-
-            IssuerSigningKey = new RsaSecurityKey(rsaKey),
-            ValidIssuer = jwt.Issuer,
-            ValidAudience = jwt.Audience,
         };
     });
+
+builder.Services.AddTransient<IClaimsTransformation, RoleClaimsTransformation>();
+
+builder.Services.AddHttpContextAccessor();
 
 // Add Swqagger
 builder.Services

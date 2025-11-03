@@ -9,6 +9,7 @@ namespace SimpelKodeordsmanager.Application.Features.Manager;
 
 public class ManagerCreateRequestHandler(
     IValidator<ManagerCreateRequestDTO> validator,
+    ICurrentUserService currentUserService,
     IManagerRepository managerRepository,
     IPasswordCrypto passwordCrypto,
     ILogger<ManagerCreateRequestHandler> logger
@@ -16,13 +17,15 @@ public class ManagerCreateRequestHandler(
 {
     public async Task InvokeAsync(ManagerCreateRequestDTO request, CancellationToken cancellationToken = default)
     {
-        logger.LogInformation("Create new password for: {Name}", request.Name);
+        var userId = currentUserService.GetUserId()!;
+
+        logger.LogInformation("Create new password for UserID: {UserID}, with {Name}", userId, request.Name);
 
         // Validate request and throw exception if invalid
         await validator.ValidateAndThrowAsync(request, cancellationToken);
 
         // Check if name of password exists
-        var password = await managerRepository.GetByNameAsync(request.Name, request.UserID);
+        var password = await managerRepository.GetByNameAsync(request.Name, userId);
 
         if (password != null)
             throw new BadRequestException($"Password with {request.Name} already exists.");
@@ -31,11 +34,11 @@ public class ManagerCreateRequestHandler(
         var encryptedPassword = passwordCrypto.Encrypt(request.Password);
 
         // Save user
-        var createPassword = new Domain.Models.Manager
+        var createPassword = new Domain.Entities.ManagerEntity
         {
             Name = request.Name,
             Password = encryptedPassword,
-            UserId = request.UserID,
+            UserId = userId,
         };
 
         await managerRepository.CreateAsync(createPassword);

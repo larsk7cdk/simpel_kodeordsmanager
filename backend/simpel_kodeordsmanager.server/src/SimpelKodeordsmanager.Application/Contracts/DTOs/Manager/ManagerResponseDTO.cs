@@ -5,7 +5,7 @@ public class ManagerResponseDTO
     /// <summary>
     ///     Bruger ID
     /// </summary>
-    public required int UserID { get; init; }
+    public required string UserID { get; init; }
 
     /// <summary>
     /// Navn på kodeord

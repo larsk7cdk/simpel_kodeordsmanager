@@ -5,8 +5,4 @@
 /// </summary>
 public class ManagerReadRequestDTO
 {
-    /// <summary>
-    ///     Bruger ID
-    /// </summary>
-    public required int UserID { get; init; }
 }
