@@ -24,7 +24,7 @@ namespace SimpelKodeordsmanager.API.Controllers
         ///     Sundhedstjek af API'en med autorisation
         /// </summary>
         [HttpGet, Route("auth")]
-        [Authorize(Roles = $"{Role.Admin}, {Role.Member}")]
+        [Authorize(Roles = $"{Roles.Admin}, {Roles.Member}")]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> GetHealthAuthAsync()

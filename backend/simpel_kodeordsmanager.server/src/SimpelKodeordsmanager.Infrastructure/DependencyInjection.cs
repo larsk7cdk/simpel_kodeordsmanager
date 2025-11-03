@@ -13,9 +13,10 @@ public static class DependencyInjection
         // Configuration bindings
         services.Configure<Crypto>(configuration.GetSection("Crypto"));
         
+        services.AddScoped<ICurrentUserService, CurrentUserService>();
+
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<IPasswordCrypto, PasswordCrypto>();
-        services.AddScoped<ITokenService, TokenService>();
 
         return services;
     }

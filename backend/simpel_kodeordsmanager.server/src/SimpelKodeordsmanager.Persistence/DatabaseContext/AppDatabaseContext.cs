@@ -1,20 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SimpelKodeordsmanager.Domain.Entities;
-using SimpelKodeordsmanager.Domain.Models;
 
 namespace SimpelKodeordsmanager.Persistence.DatabaseContext;
 
 public sealed class AppDatabaseContext(DbContextOptions<AppDatabaseContext> options) : DbContext(options)
 {
     // DbSets for entities
-    public DbSet<User> Users { get; init; }
-
-    public DbSet<Manager> Managers { get; init; }
+    public DbSet<ManagerEntity> Managers { get; init; }
     
-    public DbSet<Role> Roles { get; init; }
-    
-    public DbSet<UserRole> UserRole { get; init; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Loads all configurations that implement IEntityTypeConfiguration<T> from the assembly

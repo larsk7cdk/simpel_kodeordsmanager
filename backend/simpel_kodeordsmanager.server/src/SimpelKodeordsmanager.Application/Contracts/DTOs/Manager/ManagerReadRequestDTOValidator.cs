@@ -6,7 +6,5 @@ public class ManagerReadRequestDTOValidator : AbstractValidator<ManagerReadReque
 {
     public ManagerReadRequestDTOValidator()
     {
-        RuleFor(x => x.UserID)
-            .NotEmpty().WithMessage("Bruger ID må ikke være tom.");
     }
 }

@@ -3,13 +3,9 @@
 /// <summary>
 ///     Opret et nyt kodord
 /// </summary>
-public class ManagerCreateRequestDTO
+public class
+    ManagerCreateRequestDTO
 {
-    /// <summary>
-    ///     Bruger ID
-    /// </summary>
-    public required int UserID { get; init; }
-
     /// <summary>
     /// Navn på kodeord
     /// </summary>
