@@ -72,6 +72,10 @@ builder.Services
         };
     });
 
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy(Roles.All, policy =>
+        policy.RequireRole(Roles.Admin, Roles.Member));
+
 builder.Services.AddTransient<IClaimsTransformation, RoleClaimsTransformation>();
 
 builder.Services.AddHttpContextAccessor();
