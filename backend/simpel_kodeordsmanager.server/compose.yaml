@@ -1,13 +1,13 @@
 ﻿services:
   
   # API
-  simpel_kodeordsmanager.api:
-    image: simpel_kodeordsmanager.api
-    build:
-      context: .
-      dockerfile: src/simpel_kodeordsmanager.api/Dockerfile
-    networks:
-      - backend-network
+#  simpel_kodeordsmanager.api:
+#    image: simpel_kodeordsmanager.api
+#    build:
+#      context: .
+#      dockerfile: src/simpel_kodeordsmanager.api/Dockerfile
+#    networks:
+#      - backend-network
   
   # SQL Server to use for API
   sqlserver:
