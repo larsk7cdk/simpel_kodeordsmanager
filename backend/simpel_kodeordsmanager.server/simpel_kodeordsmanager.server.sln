@@ -27,13 +27,34 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpelKodeordsmanager.API",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0658F154-9B9F-4BEB-A5D4-7D23837ACD21}"
 	ProjectSection(SolutionItems) = preProject
-		compose.yaml = compose.yaml
-		.env = .env
+		nginx.sh = nginx.sh
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpelKodeordsmanager.IntegrationTests", "tests\SimpelKodeordsmanager.IntegrationTests\SimpelKodeordsmanager.IntegrationTests.csproj", "{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpelKodeordsmanager.UnitTests", "tests\SimpelKodeordsmanager.UnitTests\SimpelKodeordsmanager.UnitTests.csproj", "{B838E0B8-7DF0-43E0-A336-CABC1E5D51C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "virtualization", "virtualization", "{51F1C738-A192-4907-A9B7-CB4E0E0C4620}"
+	ProjectSection(SolutionItems) = preProject
+		virtualization\.env = virtualization\.env
+		virtualization\compose.yaml = virtualization\compose.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nginx", "nginx", "{504124CF-44BC-4BD6-9BB9-4FA829846063}"
+	ProjectSection(SolutionItems) = preProject
+		virtualization\nginx\Dockerfile = virtualization\nginx\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "certs", "certs", "{5C67CA16-B1EB-44CE-991A-0BAD9DC964C7}"
+	ProjectSection(SolutionItems) = preProject
+		virtualization\nginx\certs\localhost.crt = virtualization\nginx\certs\localhost.crt
+		virtualization\nginx\certs\localhost.key = virtualization\nginx\certs\localhost.key
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{C5A4A11A-0035-4B74-904A-96084EC2B718}"
+	ProjectSection(SolutionItems) = preProject
+		virtualization\nginx\config\localhost.conf = virtualization\nginx\config\localhost.conf
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +72,9 @@ Global
 		{2CA7D32F-DB24-4D00-B9D1-6BB57E964BBC} = {227407B8-9118-427E-BB8E-DC0A8BF1EADC}
 		{4B2BBF71-140A-4AF8-BD82-9ACFE872ADB6} = {BB5C6197-574E-444E-9A53-59E1EF6D24C4}
 		{B838E0B8-7DF0-43E0-A336-CABC1E5D51C1} = {BB5C6197-574E-444E-9A53-59E1EF6D24C4}
+		{504124CF-44BC-4BD6-9BB9-4FA829846063} = {51F1C738-A192-4907-A9B7-CB4E0E0C4620}
+		{5C67CA16-B1EB-44CE-991A-0BAD9DC964C7} = {504124CF-44BC-4BD6-9BB9-4FA829846063}
+		{C5A4A11A-0035-4B74-904A-96084EC2B718} = {504124CF-44BC-4BD6-9BB9-4FA829846063}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{56E1690D-6DBB-4AC4-9E03-912A303238A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
