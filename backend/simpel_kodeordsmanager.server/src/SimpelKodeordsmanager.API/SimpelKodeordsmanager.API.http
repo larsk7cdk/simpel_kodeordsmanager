@@ -1,4 +1,9 @@
-# Run
+@Keycloak_HostAddress=http://localhost:8080/realms/simpel_kodeordsmanager
+@client_id=simpel-kodeordsmanager-api
+@client_secret=oo0N2QWA3vzBpHKK05HgNlZBxvaHDgBx
+@grant_type=password
+@API_HostAddress=https://localhost:5001/api
+
 
 # Health
 
@@ -18,7 +23,7 @@ Content-Type: application/x-www-form-urlencoded
 client_id = {{client_id}} &
 client_secret = {{client_secret}} &
 grant_type = {{grant_type}} &
-username = admin &
+username = lars &
 password = P@ssword2025
 
 > {%
@@ -48,3 +53,5 @@ Authorization: Bearer {{access_token}}
 {
   
 }
+
+###
