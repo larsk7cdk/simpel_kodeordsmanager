@@ -41,7 +41,8 @@ Content-Type: application/json
 Authorization: Bearer {{access_token}}
 
 {
-  "name": "My first password",
+  "name": "My Spotify password",
+  "username": "spotify",
   "password": "qwerty123456asdfgh"
 }
 

@@ -33,6 +33,7 @@ public class ManagerReadRequestHandler(
         {
             UserID = userId,
             Name = s.Name,
+            Username = s.Username,
             Password = passwordCrypto.Decrypt(s.Password),
             EncryptedPassword = s.Password
         }).ToList();

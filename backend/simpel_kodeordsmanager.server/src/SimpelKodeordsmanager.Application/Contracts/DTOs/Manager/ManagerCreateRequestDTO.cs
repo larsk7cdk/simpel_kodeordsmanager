@@ -12,6 +12,11 @@ public class
     public required string Name { get; init; }
 
     /// <summary>
+    /// Brugernavn
+    /// </summary>
+    public required string Username { get; init; } 
+    
+    /// <summary>
     /// Kodeord
     /// </summary>
     public required string Password { get; init; }

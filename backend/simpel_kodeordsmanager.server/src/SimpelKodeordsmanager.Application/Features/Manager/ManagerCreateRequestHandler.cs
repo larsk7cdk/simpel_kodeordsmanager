@@ -37,6 +37,7 @@ public class ManagerCreateRequestHandler(
         var createPassword = new Domain.Entities.ManagerEntity
         {
             Name = request.Name,
+            Username = request.Username,
             Password = encryptedPassword,
             UserId = userId,
         };
