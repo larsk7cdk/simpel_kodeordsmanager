@@ -1,1 +1,2 @@
-# simpel_kodeordsmanager
+# Den Simple Kodeordsmanager
+
