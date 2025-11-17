@@ -22,7 +22,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Load and bind configuration
 var configuration = builder.Configuration;
-// var jwt = configuration.GetSection("Jwt").Get<Jwt>()!;
 var keycloak = configuration.GetSection("Keycloak").Get<Keycloak>()!;
 
 // Set Danish culture globally
@@ -113,11 +112,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 // Add Middleware
 app.UseMiddleware<ExceptionMiddleware>();
 
-// redirect HTTP requests to HTTPS
+// Redirect HTTP requests to HTTPS
 app.UseHttpsRedirection();
+
+// Use HTTP Strict Transport Security Protocol
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHsts();
+}
 
 // Enable routing, needed when using controllers 
 app.UseRouting();
